@@ -60,14 +60,18 @@ bool Gfx::init()
     return true;
 }
 
-void Gfx::update()
-{
-
-}
-
 void Gfx::clear()
 {
-    
+    SDL_FillRect(screen, &screen->clip_rect, SDL_MapRGB(screen->format, 0x00, 0x00, 0x00));
+}
+
+void Gfx::update(vector<DrawableObject> objectList)
+{
+	for(unsigned int i = 0; i < objectList.size(); i++)
+	{
+		objectList[i].updatePhysics();
+		objectList[i].draw(screen);
+	}
 }
 
 void Gfx::render()

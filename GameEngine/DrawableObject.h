@@ -1,13 +1,21 @@
 #pragma once
 
-#include "GameObject.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <string>
+#include "Vector.h"
 #include "Point.h"
+#include "Physics.h"
 
-class DrawableObject : public GameObject
+class DrawableObject
 {
 private:
-	point location;
+	int id;
+	SDL_Surface *image;
+	Physics physics;
 public:
-	DrawableObject(void);
-	~DrawableObject(void);
+	DrawableObject(std::string filename, int x = 0, int y = 0, int velX = 0, int velY = 0, int mass = 1, double angle = 0);
+	~DrawableObject();
+	void updatePhysics();
+	void draw(SDL_Surface* destination, SDL_Rect* clip = NULL);
 };

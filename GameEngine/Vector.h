@@ -15,6 +15,4 @@ public:
 	Vector normalize();
 	Vector& operator+(Vector &other);
 	void operator=(Vector &other);
-protected:
-private:
 };

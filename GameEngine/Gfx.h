@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include "Exceptions.h"
+#include "DrawableObject.h"
 
 class Gfx
 {
@@ -20,7 +21,7 @@ public:
 
     void clear();
     void render();
-	void update();
+	void update(std::vector<DrawableObject> objectList);
     void delay();
 
 	SDL_Surface *loadImage(std::string file);
