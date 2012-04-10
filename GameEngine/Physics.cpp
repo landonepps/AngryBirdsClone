@@ -14,7 +14,7 @@ Physics::~Physics(void)
 
 void Physics::updateTime()
 {
-	deltaTime = oldTime - SDL_GetTicks()/1000;
+	deltaTime = SDL_GetTicks()/1000 - oldTime;
 	oldTime = SDL_GetTicks()/1000;
 }
 

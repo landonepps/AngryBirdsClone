@@ -84,7 +84,6 @@ void Gfx::delay()
     SDL_framerateDelay(&fpsman);
 }
 
-
 SDL_Surface *loadImage(string file)
 {
 	SDL_Surface *loadedImage = NULL;

@@ -4,7 +4,7 @@ using namespace std;
 
 Game::Game()
 {
-	DrawableObject testObject("genericObject.png", 15, 200, -15, 10, 10);
+	DrawableObject testObject("genericObject.png", 15, 200, 15, -10, 10);
     objectList.push_back(testObject);
 }
 
