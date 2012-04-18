@@ -12,10 +12,11 @@ class DrawableObject
 private:
 	int id;
 	SDL_Surface *image;
-	Physics physics;
+	Physics *physics;
 public:
-	DrawableObject(std::string filename, int x = 0, int y = 0, int velX = 0, int velY = 0, int mass = 1, double angle = 0);
+	DrawableObject(std::string filename, int id, int x = 0, int y = 0, int velX = 0, int velY = 0, int mass = 1, double angle = 0);
 	~DrawableObject();
+	DrawableObject(const DrawableObject& other);
 	void updatePhysics();
 	void draw(SDL_Surface* destination, SDL_Rect* clip = NULL);
 };

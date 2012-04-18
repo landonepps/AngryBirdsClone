@@ -6,9 +6,6 @@
 #include <SDL_framerate.h>
 #include <SDL_ttf.h>
 #include <string>
-#include <vector>
-#include "Exceptions.h"
-#include "DrawableObject.h"
 
 class Gfx
 {
@@ -17,14 +14,7 @@ private:
     FPSmanager fpsman;
 public:
     Gfx();
-    virtual ~Gfx();
-
-    void clear();
-    void render();
-	void update(std::vector<DrawableObject> objectList);
-    void delay();
+    ~Gfx();
 
 	SDL_Surface *loadImage(std::string file);
-
-    SDL_Surface* screen;
 };

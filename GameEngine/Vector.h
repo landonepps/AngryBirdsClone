@@ -9,7 +9,7 @@ public:
 	Vector();
 	virtual ~Vector();
 
-	int x, y;
+	double x, y;
 	double getMagnitude();
 	double getAngle();
 	Vector normalize();

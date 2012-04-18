@@ -3,40 +3,39 @@
 using namespace std;
 
 
-Physics::Physics(void)
+Physics::Physics(int x, int y, int velX, int velY, int mass, double angle)
 {
+	location.x = x;
+	location.y = y;
+	velocity.x = velX;
+	velocity.y = velY;
+	this->mass = mass;
+	this->angle = angle;
+	//oldTime = SDL_GetTicks()/100.0;
 }
 
-
-Physics::~Physics(void)
+Physics::~Physics()
 {
 }
 
 void Physics::updateTime()
 {
-	deltaTime = SDL_GetTicks()/1000 - oldTime;
-	oldTime = SDL_GetTicks()/1000;
+	/*newTime = SDL_GetTicks()/100.0;
+	deltaTime = newTime - oldTime;
+	oldTime = newTime;*/
+	deltaTime = 1;
 }
 
-void Physics::solvePos()
+void Physics::updatePosition()
 {
-    location.x = velocity.x * deltaTime + location.x;
-    location.y = velocity.y * deltaTime + 0.5 * GRAVITY * pow(deltaTime, 2.0) + location.y;
+	printf("location.x = %f, location.y = %f deltaTime = %f time = %f\n", location.x, location.y, deltaTime, SDL_GetTicks()/1000.0);
+	printf("location.y = %f * %f + 0.5 * %f * %f^2 + %f\n", velocity.y, deltaTime, GRAVITY, deltaTime, location.y);
+	if (mass == 0)
+	{
+	}
+	else
+	{
+		location.x = velocity.x * deltaTime + location.x;
+		location.y = velocity.y * deltaTime + 0.5 * GRAVITY * deltaTime * deltaTime + location.y;
+	}
 }
-
-/*
-double Physics::solveVel(double mass, double theta, double vel)
-{
-    return vel * ((2 * mass) / (mass + MASSOFSURFACE) * sin(theta / 2));
-}*/
-
-/*
-double Physics::solveVelX(double vel, double theta)
-{
-    return cos(theta) * vel;
-}
-
-double Physics::solveVelY(double vel, double theta)
-{
-    return sin(theta) * vel;
-}*/

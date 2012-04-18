@@ -1,6 +1,6 @@
 #pragma once
 
-#define GRAVITY 1
+#define GRAVITY 1.0
 
 #include <SDL.h>
 #include <cmath>
@@ -13,17 +13,13 @@ private:
 
 
 public:
-	double oldTime, deltaTime;
+	double oldTime, deltaTime, newTime;
 	point location;
 	double angle;
 	Vector velocity;
 	int mass;
-	Physics(void);
-	virtual ~Physics(void);
-	void solvePos();
-	//double solveVel(double, double, double); //mass, theta, velocityInitial
-	//double solveVelX(double , double );
-	//double solveVelY(double , double );
-	Vector solveVelocity(double, double, double);
+	Physics(int x, int y, int velX, int velY, int pass, double angle);
+	virtual ~Physics();
+	void updatePosition();
 	void updateTime();
 };

@@ -2,5 +2,5 @@
 
 struct point
 {
-	int x, y;
+	double x, y;
 };
