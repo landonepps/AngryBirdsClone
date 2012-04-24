@@ -9,15 +9,7 @@ StationaryObject::StationaryObject(string file, int x, int y)
 	location.x = x;
 	location.y = y;
 
-	image = NULL;
-	SDL_Surface *loadedImage = NULL;
-
-	loadedImage = IMG_Load(file.c_str());
-	if (loadedImage != NULL)
-	{
-		image = SDL_DisplayFormatAlpha(loadedImage);
-		SDL_FreeSurface(loadedImage);
-	}
+	loadImage(file);
 }
 
 StationaryObject::~StationaryObject()
@@ -36,4 +28,17 @@ void StationaryObject::draw(SDL_Surface * destination, SDL_Rect * clip)
 	offset.y = location.y;
 
 	SDL_BlitSurface(image, NULL, destination, &offset);
+}
+
+void StationaryObject::loadImage(string file)
+{
+	image = NULL;
+	SDL_Surface *loadedImage = NULL;
+
+	loadedImage = IMG_Load(file.c_str());
+	if (loadedImage != NULL)
+	{
+		image = SDL_DisplayFormatAlpha(loadedImage);
+		SDL_FreeSurface(loadedImage);
+	}
 }

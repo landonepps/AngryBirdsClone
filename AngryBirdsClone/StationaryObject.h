@@ -13,9 +13,10 @@ class StationaryObject : public Object
 private:
 	point location;
 public:
-	StationaryObject(string file, int x, int y);
+	StationaryObject(string file, int x = 0, int y = 0);
 	~StationaryObject();
 	void update();
 	void draw(SDL_Surface * destination, SDL_Rect * clip = NULL);
+	void loadImage(string file);
 };
 
